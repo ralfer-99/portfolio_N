@@ -51,12 +51,18 @@
  .header.sticky{
    border-bottom: .1rem solid rgba(0, 0,0, .2);
  }
- .logo{
-    font-size: 2.5rem;
-    color: var(--text-color);
-    font-weight:600;
-    cursor:default;
- }
+ .logo {
+    font-size: 3.5rem; /* Increased font size */
+    font-weight: 700;
+    cursor: default;
+    letter-spacing: 0.5rem; /* Added spacing between letters */
+    background: linear-gradient(90deg, #0ef, #ff6ec4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInLogo 1.5s ease-in-out forwards;
+    position: relative;
+}
+
  .navbar a {
     font-size: 1.7rem;
     color: var(--text-color);
@@ -487,4 +493,28 @@
    color: #61b752;
    margin-top: -10px;
    display: block;
+}
+
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.logo:hover {
+    animation: pulseLogo 0.8s infinite;
+}
+
+@keyframes pulseLogo {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
 }
