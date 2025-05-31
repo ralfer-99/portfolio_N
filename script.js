@@ -42,6 +42,28 @@ ScrollReveal({
 ScrollReveal().reveal('.home-content,.heading',{origin:'top'});
 ScrollReveal().reveal('.home-img,.services-container,.portfolio-box,.contact form',{origin:'bottom'});
 ScrollReveal().reveal('.home-content h1,.about-img',{origin:'left'});
+ScrollReveal().reveal('.education-item', { 
+    origin: 'bottom',
+    interval: 200,
+    distance: '50px'
+});
+// Initialize ScrollReveal for skills section
+ScrollReveal().reveal('.skills-category', {
+    origin: 'bottom',
+    distance: '50px',
+    interval: 200,
+    delay: 300
+});
+
+// Restart animation on click (optional)
+document.querySelectorAll('.marquee-container').forEach(container => {
+    container.addEventListener('click', () => {
+        const content = container.querySelector('.marquee-content');
+        content.style.animation = 'none';
+        void content.offsetWidth; // Trigger reflow
+        content.style.animation = 'marquee 25s linear 1';
+    });
+});
 ScrollReveal().reveal('.home-content p,.about-content',{origin:'right'});
 
 const typed = new Typed('.multiple-text',{
@@ -51,3 +73,5 @@ const typed = new Typed('.multiple-text',{
     backDelay:1000,
     loop:true
 });
+
+
